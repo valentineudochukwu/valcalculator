@@ -55,16 +55,16 @@ compute(){
             computation = previous + current
             break;
 
-        case 'x':
-            computation = previous+ current
+        case '*':
+            computation = previous * current
             break;
 
         case '/':
-            computation = previous + current
+            computation = previous / current
             break;
 
         case '-':
-            computation = previous + current
+            computation = previous - current
             break;
 
         default : return
@@ -76,15 +76,13 @@ compute(){
 }
 
 
-
-
 const calculator = new Calculator( previousDisplay, currentDisplay)
 
 numberButtons.forEach(button => {
 
      button.addEventListener('click', () => {
-       Calculator.appendNumber (button.innerText) 
-       Calculator.updateDisplay()
+       calculator.appendNumber(button.innerText) 
+       calculator.updateDisplay()
      })
 })
 
@@ -92,24 +90,24 @@ numberButtons.forEach(button => {
 operationButtons.forEach(button => {
 
     button.addEventListener('click', () =>{
-      Calculator.chooseOperation(button.innerText) 
-      Calculator.updateDisplay()
+      calculator.chooseOperation(button.innerText) 
+      calculator.updateDisplay()
     })
 })
 
 equalsButton.addEventListener('click', button => {
-    Calculator.compute()
-    Calculator.updateDisplay()
+    calculator.compute()
+    calculator.updateDisplay()
 })
 
 allClearButton.addEventListener('click', button => {
-    Calculator.clear()
-    Calculator.updateDisplay()
+    calculator.clear()
+    calculator.updateDisplay()
 })
 
 deleteButton.addEventListener('click', button => {
-    Calculator.delete()
-    Calculator.updateDisplay()
+    calculator.delete()
+    calculator.updateDisplay()
 })
  
 
